@@ -15,10 +15,6 @@ func main() {
 
 	r := mux.NewRouter()
 
-	r.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		w.Write([]byte("Server is running!"))
-	}).Methods("GET")
-
 	r.HandleFunc("/students", apiHandler.CreateStudent).Methods("POST")
 	r.HandleFunc("/students", apiHandler.GetAllStudents).Methods("GET")
 	r.HandleFunc("/students/{id}", apiHandler.GetStudentByID).Methods("GET")
